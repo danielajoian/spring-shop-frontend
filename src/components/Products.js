@@ -1,11 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Card, CardColumns } from "react-bootstrap";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
   const getProducts = () => {
-    axios.get("http://localhost:8080/api").then((res) => setProducts(res.data));
+    axios
+      .get("http://localhost:8080/api/product/")
+      .then((res) => setProducts(res.data));
   };
 
   useEffect(getProducts, []);
@@ -13,6 +16,12 @@ export default function Products() {
   console.log(products);
 
   const productCards = products.map((p) => {
+    const newLinkTo = {
+      pathname: `/product/${p.id}/${p.userId}`,
+      productId: p.id,
+      userId: p.userId,
+    };
+
     return (
       <Card style={cardStyle}>
         <div className="card-img-container" style={imgContainerStyle}>
@@ -24,8 +33,11 @@ export default function Products() {
           />
         </div>
         <Card.Body style={cardBodystyle}>
-          <Card.Title>{p.title}</Card.Title>
-          <Card.Text>{p.description}</Card.Text>
+          <Link to={newLinkTo}>
+            <Card.Title>{p.title}</Card.Title>
+          </Link>
+
+          <Card.Text>${p.price}</Card.Text>
         </Card.Body>
         <Card.Footer>
           <small className="text-muted">Last updated 3 mins ago</small>
