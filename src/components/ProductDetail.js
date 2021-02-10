@@ -13,6 +13,7 @@ export default function ProductDetail(props) {
       .then((res) => setProduct(res.data));
   }, [productId]);
 
+  // Fetch user data
   const [user, setUser] = useState();
   useEffect(() => {
     axios
@@ -23,5 +24,5 @@ export default function ProductDetail(props) {
   console.log(product);
   console.log(user);
 
-  return <div>{/* <UserDetails></UserDetails> */}</div>;
+  return <div></div>;
 }
