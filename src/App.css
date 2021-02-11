@@ -5,3 +5,7 @@
 #main-container {
   margin-bottom: 60px;
 }
+
+.form-input {
+  border: 2px solid red;
+}
