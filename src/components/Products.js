@@ -23,7 +23,7 @@ export default function Products() {
     };
 
     return (
-      <Card style={cardStyle}>
+      <Card className="col-auto mb-3" style={cardStyle}>
         <div className="card-img-container" style={imgContainerStyle}>
           <Card.Img
             style={cardImgStyle}
@@ -46,16 +46,21 @@ export default function Products() {
     );
   });
 
-  return <CardColumns style={cardDeckStyle}>{productCards}</CardColumns>;
+  return (
+    <div className="container" style={cardContainerStyle}>
+      <div className="row">{productCards}</div>
+    </div>
+  );
 }
 
-const cardDeckStyle = {
+const cardContainerStyle = {
   width: "80%",
   margin: "1rem auto",
 };
 
 const cardStyle = {
   minHeight: "100%",
+  width: "33%",
 };
 
 const cardBodystyle = {

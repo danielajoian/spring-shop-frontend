@@ -1,4 +1,5 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import axios from "axios";
 
 const useAddForm = (validate) => {
   const [values, setValues] = useState({
@@ -6,7 +7,7 @@ const useAddForm = (validate) => {
     description: "",
     price: "",
     category: "",
-    image: "",
+    imageLink: "",
   });
 
   const [errors, setErrors] = useState({});
@@ -16,13 +17,15 @@ const useAddForm = (validate) => {
       ...values,
       [e.target.name]: e.target.value,
     });
+    console.log(values);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log("HandleSubmit");
-    console.log(values);
     setErrors(validate(values));
+    axios.post("http://localhost:8080/api/product", values);
+    console.log("dupa axios post");
   };
 
   return { values, handleChange, handleSubmit, errors };

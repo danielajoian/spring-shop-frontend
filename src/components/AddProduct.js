@@ -64,13 +64,13 @@ export default function AddProduct() {
               <option value="SPORTS">Sporting goods & Hobby</option>
             </Form.Control>
           </Form.Group>
-          <Form.Group as={Col} controlId="image">
+          <Form.Group as={Col} controlId="imageLink">
             <Form.Label className="form-label">Image Link</Form.Label>
             <Form.Control
               className="form-input"
-              name="image"
-              placeholder="Enter product image"
-              value={values.image}
+              name="imageLink"
+              placeholder="Enter product image link"
+              value={values.imageLink}
               onChange={handleChange}
             />
           </Form.Group>
