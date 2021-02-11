@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
+import "./ProductDetail.css";
 
 export default function ProductDetail(props) {
   const productId = props.match.params.productId;
@@ -22,13 +23,20 @@ export default function ProductDetail(props) {
     fetchData();
   }, []);
 
-  console.log(data.product.imageLink);
+  const formattedPrice = parseInt(data.product.price).toLocaleString("en-US", {
+    style: "currency",
+    currency: "USD",
+  });
 
   return (
     <Container style={containerStyle}>
+      <Row></Row>
       <Row>
         <Col>
-          <Card>
+          <Card
+            className="product-container"
+            style={{ boxShadow: "-1px 1px 15px -6px rgba(0, 0, 0, 0.652)" }}
+          >
             <div className="card-img-container">
               <Card.Img
                 variant="top"
@@ -37,9 +45,16 @@ export default function ProductDetail(props) {
               />
             </div>
             <Card.Body>
-              <Card.Title>{data.product.title}</Card.Title>
-              <Card.Text>${data.product.price}</Card.Text>
-              <Card.Text>{data.product.description}</Card.Text>
+              <Card.Title style={{ fontSize: "2rem" }}>
+                {data.product.title}
+              </Card.Title>
+              <Card.Text style={{ fontSize: "1.5rem" }}>
+                {formattedPrice}
+              </Card.Text>
+              <hr />
+              <Card.Text style={{ fontSize: "1.25rem" }}>
+                {data.product.description}
+              </Card.Text>
             </Card.Body>
             <Card.Footer>
               <small className="text-muted">Last updated 3 mins ago</small>
@@ -47,12 +62,26 @@ export default function ProductDetail(props) {
           </Card>
         </Col>
         <Col md="4">
-          <Card>
-            <Card.Body>
-              <Card.Title>{data.user.name}</Card.Title>
+          <Card className="seller-container" style={sellerContainerStyle}>
+            <span style={{ color: "white" }}>Seller info</span>
 
-              <Card.Text>Email: {data.user.email}</Card.Text>
-              <Card.Text>Phone: {data.user.phone}</Card.Text>
+            <Card.Body>
+              <Card.Title className="primary-text" style={sellerNameStyle}>
+                {data.user.name}
+              </Card.Title>
+
+              <Card.Text className="primary-text">
+                E-mail:<br></br>
+                <span style={{ color: "white" }} className="secondary-text">
+                  {data.user.email}
+                </span>
+              </Card.Text>
+              <Card.Text className="primary-text">
+                Phone: <br></br>
+                <span style={{ color: "white" }} className="secondary-text">
+                  {data.user.phone}
+                </span>
+              </Card.Text>
             </Card.Body>
           </Card>
         </Col>
@@ -64,4 +93,18 @@ export default function ProductDetail(props) {
 const containerStyle = {
   margin: "1rem auto",
   width: "80%",
+};
+
+const sellerContainerStyle = {
+  border: "3px solid white",
+  borderRadius: "10px",
+  backgroundColor: "#2F4858",
+  color: "rgb(182, 251, 71)",
+  boxShadow: "-1px 1px 15px -6px rgba(0, 0, 0, 0.652)",
+  fontSize: "1.2em",
+};
+
+const sellerNameStyle = {
+  color: "white",
+  fontSize: "2rem",
 };

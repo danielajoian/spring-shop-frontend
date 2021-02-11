@@ -33,8 +33,11 @@ export default function HomeTop() {
     width: "8em",
     height: "3em",
     border: "1px solid #2F4858",
-    borderRadius: "8%",
-    color: "#2F4858",
+    borderRadius: "10px",
+    color: "white",
+    backgroundColor: "#000000bb",
+    fontSize: "1.5rem",
+    fontWeight: "800",
   };
 
   function onHover(e) {
@@ -45,8 +48,8 @@ export default function HomeTop() {
 
   function hoverOut(e) {
     e.target.style.border = "2px solid #2F4858";
-    e.target.style.color = "#2F4858";
-    e.target.style.backgroundColor = "white";
+    e.target.style.color = "#white";
+    e.target.style.backgroundColor = "#000000bb";
   }
 
   const history = useHistory();

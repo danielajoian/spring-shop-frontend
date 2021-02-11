@@ -34,10 +34,10 @@ export default function Products() {
         </div>
         <Card.Body style={cardBodystyle}>
           <Link to={newLinkTo}>
-            <Card.Title>{p.title}</Card.Title>
+            <Card.Title style={titleStyle}>{p.title}</Card.Title>
           </Link>
 
-          <Card.Text>${p.price}</Card.Text>
+          <Card.Text style={priceStyle}>${p.price}</Card.Text>
         </Card.Body>
         <Card.Footer>
           <small className="text-muted">Last updated 3 mins ago</small>
@@ -60,20 +60,30 @@ const cardContainerStyle = {
 
 const cardStyle = {
   minHeight: "100%",
-  width: "33%",
+  width: "30%",
+  boxShadow: "-1px 1px 10px -6px rgba(0, 0, 0, 0.652)",
+  margin: "10px",
 };
 
 const cardBodystyle = {
-  minHeight: "10rem",
+  minHeight: "5rem",
 };
 
 const cardImgStyle = {
-  // width: "auto",
-  // height: "auto",
-  // maxWidth: "400px",
-  // maxHeight: "15rem",
+  margin: "10px 0",
   objectFit: "cover",
   height: "250px",
+};
+
+const titleStyle = {
+  fontSize: "1.5rem",
+  fontWeight: "500",
+  color: "#2F4858",
+};
+
+const priceStyle = {
+  fontSize: "1.5rem",
+  fontWeight: "300",
 };
 
 const imgContainerStyle = {

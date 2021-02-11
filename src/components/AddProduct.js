@@ -93,6 +93,6 @@ export default function AddProduct(props) {
 }
 
 const formContainerStyle = {
-  width: "60%",
+  width: "50%",
   margin: "2rem auto",
 };

@@ -1,0 +1,7 @@
+.seller-container {
+    border: 3px solid white;
+    border-radius: 10px;
+    background-color: blue;
+    color: rgb(59, 59, 59);
+    box-shadow: -1px 1px 15px -6px rgba(0, 0, 0, 0.652);
+}
