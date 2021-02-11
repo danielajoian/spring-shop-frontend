@@ -12,38 +12,38 @@ export default function HomeTop() {
     height: "900px",
     justifyContent: "center",
     alignItems: "center",
-    display: "flex"
+    display: "flex",
   };
 
   const bigText = {
     color: "#E8E8E8",
     textShadow: "2px 2px 2px black",
     flexFlow: "column wrap",
-    fontSize: "80px"
-  }
+    fontSize: "80px",
+  };
 
   const mediumText = {
     color: "#E8E8E8",
     textShadow: "2px 2px 2px black",
     flexFlow: "column wrap",
-    fontSize: "50px"
-  }
+    fontSize: "50px",
+  };
 
   const buttonStyle = {
-      width: "8em",
-      height: "3em",
-      border: "1px solid #2F4858",
-      borderRadius: "8%",
-      color: "#2F4858"
-  }
+    width: "8em",
+    height: "3em",
+    border: "1px solid #2F4858",
+    borderRadius: "8%",
+    color: "#2F4858",
+  };
 
-  function onHover (e) {
+  function onHover(e) {
     e.target.style.border = "2px solid white";
     e.target.style.color = "white";
     e.target.style.backgroundColor = "#2F4858";
   }
 
-  function hoverOut (e) {
+  function hoverOut(e) {
     e.target.style.border = "2px solid #2F4858";
     e.target.style.color = "#2F4858";
     e.target.style.backgroundColor = "white";
@@ -51,24 +51,25 @@ export default function HomeTop() {
 
   const history = useHistory();
 
-  const routeChange = () => { 
-    let path = "/register"; 
+  const routeChange = () => {
+    let path = "/add-product";
     history.push(path);
-  }
+  };
 
   return (
     <div style={pageStyle}>
       <div>
         <h1 style={bigText}>Do you have goods for sale?</h1>
-        <br/>
+        <br />
         <p style={mediumText}>Join our community</p>
-        <br/>
+        <br />
         <button
-            style={buttonStyle}
-            onMouseEnter = {onHover}
-            onMouseLeave = {hoverOut}
-            onClick = {routeChange}>
-                Register
+          style={buttonStyle}
+          onMouseEnter={onHover}
+          onMouseLeave={hoverOut}
+          onClick={routeChange}
+        >
+          Add a product
         </button>
       </div>
     </div>

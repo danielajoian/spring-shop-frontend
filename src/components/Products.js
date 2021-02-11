@@ -63,10 +63,14 @@ const cardBodystyle = {
 };
 
 const cardImgStyle = {
-  width: "auto",
-  height: "auto",
-  maxWidth: "400px",
-  maxHeight: "15rem",
+  // width: "auto",
+  // height: "auto",
+  // maxWidth: "400px",
+  // maxHeight: "15rem",
+  objectFit: "cover",
+  height: "250px",
 };
 
-const imgContainerStyle = {};
+const imgContainerStyle = {
+  display: "block",
+};

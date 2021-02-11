@@ -1,8 +1,6 @@
 export default function validateInfo(values) {
   let errors = {};
 
-  console.log(values.title);
-
   if (!values.title.trim()) {
     errors.title = "Title required";
   }

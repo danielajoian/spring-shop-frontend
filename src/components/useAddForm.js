@@ -21,7 +21,7 @@ const useAddForm = (validate) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     // console.log("HandleSubmit");
-    // console.log(values);
+    console.log(values);
     setErrors(validate(values));
   };
 

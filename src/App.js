@@ -5,11 +5,8 @@ import Header from "./components/layout/Header";
 import Products from "./components/Products";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import ProductDetail from "./components/ProductDetail";
-<<<<<<< HEAD
 import About from "./components/About";
-=======
 import AddProduct from "./components/AddProduct";
->>>>>>> add-product-form
 
 function App() {
   // const pageStyle = {

@@ -6,7 +6,6 @@ import validate from "./addProductValidation";
 export default function AddProduct() {
   const { values, handleChange, handleSubmit, errors } = useAddForm(validate);
 
-  // console.log(values);
   return (
     <div className="form-container" style={formContainerStyle}>
       <h1>List your product on BestDeals</h1>
