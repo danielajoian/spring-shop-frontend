@@ -11,7 +11,17 @@ export default function validateInfo(values) {
 
   if (!values.price) {
     errors.price = "Price required";
+  } else if (!isNumeric(values.price)) {
+    errors.price = "Price must be a number";
+  }
+
+  if (!values.category) {
+    errors.category = "Select a category";
   }
 
   return errors;
+}
+
+function isNumeric(n) {
+  return !isNaN(parseInt(n)) && isFinite(n);
 }

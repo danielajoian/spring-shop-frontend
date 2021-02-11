@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import ProductDetail from "./components/ProductDetail";
 import About from "./components/About";
 import AddProduct from "./components/AddProduct";
+import Form from "./components/Form";
 
 function App() {
   // const pageStyle = {
@@ -28,7 +29,7 @@ function App() {
             path="/product/:productId/:userId"
             component={ProductDetail}
           ></Route>
-          <Route path="/add-product" component={AddProduct}></Route>
+          <Route path="/add-product" component={Form}></Route>
         </div>
         <Footer />
       </div>

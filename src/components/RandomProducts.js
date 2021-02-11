@@ -78,12 +78,12 @@ export default function RandomProducts() {
       </h1>
       <CardColumns style={cardDeckStyle}>{productCards}</CardColumns>
       <button
-        style={buttonStyle}
+        style={bigButtonStyle}
         onMouseEnter={onHover}
         onMouseLeave={hoverOut}
         onClick={routeChange}
       >
-        All Products
+        View All Products
       </button>
     </div>
   );
@@ -96,6 +96,7 @@ const cardDeckStyle = {
 
 const cardStyle = {
   minHeight: "100%",
+  boxShadow: "-1px 1px 24px -6px rgba(0, 0, 0, 0.452)",
 };
 
 const cardBodyStyle = {
@@ -111,8 +112,14 @@ const buttonStyle = {
   width: "8em",
   height: "3em",
   border: "1px solid #2F4858",
-  borderRadius: "8%",
+  borderRadius: "10px",
   color: "#2F4858",
+};
+
+const bigButtonStyle = {
+  ...buttonStyle,
+  fontSize: "1.5rem",
+  width: "10em",
 };
 
 function onHover(e) {

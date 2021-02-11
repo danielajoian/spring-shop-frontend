@@ -2,14 +2,18 @@ import React from "react";
 import { Form, Col, Button } from "react-bootstrap";
 import useAddForm from "./useAddForm";
 import validate from "./addProductValidation";
+import "./AddProduct.css";
 
-export default function AddProduct() {
-  const { values, handleChange, handleSubmit, errors } = useAddForm(validate);
+export default function AddProduct(props) {
+  const { values, handleChange, handleSubmit, errors } = useAddForm(
+    props.submitForm,
+    validate
+  );
 
   return (
     <div className="form-container" style={formContainerStyle}>
       <h1>List your product on BestDeals</h1>
-      <Form onSubmit={handleSubmit}>
+      <Form className="main-form" onSubmit={handleSubmit}>
         <Form.Row>
           <Form.Group as={Col} controlId="title">
             <Form.Label className="form-label">Title</Form.Label>
@@ -40,6 +44,7 @@ export default function AddProduct() {
             <Form.Label className="form-label">Description</Form.Label>
             <Form.Control
               as="textarea"
+              className="form-input"
               rows={4}
               name="description"
               placeholder="Enter product description"
@@ -53,16 +58,20 @@ export default function AddProduct() {
           <Form.Group controlId="category">
             <Form.Label>Select Category</Form.Label>
             <Form.Control
+              className="form-input"
               as="select"
               name="category"
               value={values.category}
               onChange={handleChange}
+              defaultValue=""
             >
+              <option value="">Choose...</option>
               <option value="ELECTRONICS">Electronics</option>
               <option value="HOUSEHOLD">Home & Garden</option>
               <option value="ESTATE">Real Estate</option>
               <option value="SPORTS">Sporting goods & Hobby</option>
             </Form.Control>
+            {errors.category && <p>{errors.category}</p>}
           </Form.Group>
           <Form.Group as={Col} controlId="imageLink">
             <Form.Label className="form-label">Image Link</Form.Label>

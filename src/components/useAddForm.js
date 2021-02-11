@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
-const useAddForm = (validate) => {
+const useAddForm = (submitForm, validate) => {
   const [values, setValues] = useState({
     title: "",
     description: "",
@@ -11,6 +11,7 @@ const useAddForm = (validate) => {
   });
 
   const [errors, setErrors] = useState({});
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e) => {
     setValues({
@@ -24,9 +25,16 @@ const useAddForm = (validate) => {
     e.preventDefault();
     // console.log("HandleSubmit");
     setErrors(validate(values));
-    axios.post("http://localhost:8080/api/product", values);
-    console.log("dupa axios post");
+    setIsSubmitting(true);
   };
+
+  useEffect(() => {
+    if (Object.keys(errors).length === 0 && isSubmitting) {
+      axios.post("http://localhost:8080/api/product", values);
+
+      submitForm();
+    }
+  }, [errors]);
 
   return { values, handleChange, handleSubmit, errors };
 };
