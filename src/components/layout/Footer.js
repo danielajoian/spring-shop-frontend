@@ -6,7 +6,7 @@ export default function Footer() {
         left: "0",
 	    bottom: "0",
 	    width: "100%",
-	    maxHeight: "200px",
+	    height: "60px",
 	    color: "rgb(134, 167, 255)",
 	    textAlign: "center",
         backgroundColor: "white",

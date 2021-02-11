@@ -57,8 +57,12 @@ export default function Header() {
                         Products
                     </Link>
 
-                    <Link to="/contact" style = {linkStyle}>
-                        Contact
+                    <Link to="/login" style = {linkStyle}>
+                        Login
+                    </Link>
+
+                    <Link to="/register" style = {linkStyle}>
+                        Register
                     </Link>
                 </div>
             </div>
