@@ -5,6 +5,7 @@ import Header from "./components/layout/Header";
 import Products from "./components/Products";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import ProductDetail from "./components/ProductDetail";
+import AddProduct from "./components/AddProduct";
 
 function App() {
   // const pageStyle = {
@@ -25,6 +26,7 @@ function App() {
             path="/product/:productId/:userId"
             component={ProductDetail}
           ></Route>
+          <Route path="/add-product" component={AddProduct}></Route>
         </div>
         <Footer />
       </div>
