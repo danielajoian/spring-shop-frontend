@@ -11,7 +11,7 @@ export default function AddProduct(props) {
   );
 
   return (
-    <div className="form-container" style={formContainerStyle}>
+    <div className="form-container">
       <h1>List your product on BestDeals</h1>
       <Form className="main-form" onSubmit={handleSubmit}>
         <Form.Row>
@@ -91,8 +91,3 @@ export default function AddProduct(props) {
     </div>
   );
 }
-
-const formContainerStyle = {
-  width: "50%",
-  margin: "2rem auto",
-};
