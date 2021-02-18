@@ -38,3 +38,8 @@ h1 {
     font-weight: bold;
     color: #2F4858;
 }
+
+.form-container {
+    width: 50%;
+    margin: 2rem auto
+}
