@@ -3,6 +3,7 @@ import { Form, Col, Button } from "react-bootstrap";
 import useAddForm from "./useAddForm";
 import validate from "./addProductValidation";
 import "./AddProduct.css";
+import ImageDropzone from "./ImageDropzone";
 
 export default function AddProduct(props) {
   const { values, handleChange, handleSubmit, errors } = useAddForm(
@@ -83,6 +84,7 @@ export default function AddProduct(props) {
               onChange={handleChange}
             />
           </Form.Group>
+          <ImageDropzone></ImageDropzone>
         </Form.Row>
         <Button variant="primary" type="submit">
           Submit
