@@ -1,9 +1,8 @@
 import React from "react";
-import HomeBot from "./HomeBot";
 import HomeBanner from "./HomeBanner";
 import RandomProducts from "./RandomProducts";
 import "./Home.css";
-import About from "./About";
+import About from "../About";
 
 export default function Home() {
   return (

@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import bg from "../try.jpg";
+import bg from "../../try.jpg";
 
 export default function HomeTop() {
   const pageStyle = {

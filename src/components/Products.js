@@ -13,13 +13,9 @@ export default function Products() {
 
   useEffect(getProducts, []);
 
-  console.log(products);
-
   const productCards = products.map((p) => {
     const newLinkTo = {
-      pathname: `/product/${p.id}/${p.userId}`,
-      productId: p.id,
-      userId: p.userId,
+      pathname: `/product/${p.id}`,
     };
 
     return (
