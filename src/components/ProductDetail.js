@@ -8,26 +8,31 @@ export default function ProductDetail(props) {
   const userId = props.match.params.userId;
 
   // Fetch product data
-  const [data, setData] = useState({ product: {}, user: {} });
+  const [data, setData] = useState({ user: {} });
 
   useEffect(() => {
     const fetchData = async () => {
-      const userRes = await axios(`http://localhost:8080/api/user/${userId}`);
+      // const userRes = await axios(`http://localhost:8080/api/user/${userId}`);
       const productRes = await axios(
         `http://localhost:8080/api/product/${productId}`
       );
 
-      setData({ product: productRes.data, user: userRes.data });
+      setData(productRes.data);
     };
 
     fetchData();
   }, []);
 
-  const formattedPrice = parseInt(data.product.price).toLocaleString("en-US", {
+  const formattedPrice = parseInt(data.price).toLocaleString("en-US", {
     style: "currency",
     currency: "USD",
   });
 
+  console.log(data);
+  // console.log(data.price);
+  console.log(data.user.email);
+
+  // return <h1>Hello</h1>;
   return (
     <Container style={containerStyle}>
       <Row></Row>
@@ -40,20 +45,18 @@ export default function ProductDetail(props) {
             <div className="card-img-container">
               <Card.Img
                 variant="top"
-                src={data.product.imageLink}
+                src={data.imageLink}
                 className="img-fluid"
               />
             </div>
             <Card.Body>
-              <Card.Title style={{ fontSize: "2rem" }}>
-                {data.product.title}
-              </Card.Title>
+              <Card.Title style={{ fontSize: "2rem" }}>{data.title}</Card.Title>
               <Card.Text style={{ fontSize: "1.5rem" }}>
                 {formattedPrice}
               </Card.Text>
               <hr />
               <Card.Text style={{ fontSize: "1.25rem" }}>
-                {data.product.description}
+                {data.description}
               </Card.Text>
             </Card.Body>
             <Card.Footer>
