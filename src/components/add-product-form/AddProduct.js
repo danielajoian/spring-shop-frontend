@@ -8,7 +8,8 @@ import ImageDropzone from "./ImageDropzone";
 export default function AddProduct(props) {
   const { values, handleChange, handleSubmit, errors } = useAddForm(
     props.submitForm,
-    validate
+    validate,
+    props.setNewProductId
   );
 
   return (
@@ -84,7 +85,6 @@ export default function AddProduct(props) {
               onChange={handleChange}
             />
           </Form.Group>
-          <ImageDropzone></ImageDropzone>
         </Form.Row>
         <Button variant="primary" type="submit">
           Submit

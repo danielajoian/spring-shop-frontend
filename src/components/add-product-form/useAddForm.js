@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-const useAddForm = (submitForm, validate) => {
+const useAddForm = (submitForm, validate, setNewProductId) => {
   const [values, setValues] = useState({
     title: "",
     description: "",
@@ -18,7 +18,7 @@ const useAddForm = (submitForm, validate) => {
       ...values,
       [e.target.name]: e.target.value,
     });
-    console.log(values);
+    // console.log(values);
   };
 
   const handleSubmit = (e) => {
@@ -30,7 +30,8 @@ const useAddForm = (submitForm, validate) => {
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
-      axios.post("http://localhost:8080/api/product", values);
+      axios.post("http://localhost:8080/api/product", values)
+      .then(res => setNewProductId({id: res.data.id}));
 
       submitForm();
     }

@@ -43,9 +43,14 @@ export default function ProductDetail(props) {
             style={{ boxShadow: "-1px 1px 15px -6px rgba(0, 0, 0, 0.652)" }}
           >
             <div className="card-img-container">
-              <Card.Img
+              {/* <Card.Img
                 variant="top"
                 src={data.imageLink}
+                className="img-fluid"
+              /> */}
+              <Card.Img 
+                variant="top"
+                src={`http://localhost:8080/api/product/${productId}/image/download`}
                 className="img-fluid"
               />
             </div>
