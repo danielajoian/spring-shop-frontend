@@ -137,6 +137,8 @@ const ImageDropzone = (props) => {
     const dropzone = (
         <div className="dropzone-container">
             <h1>Add your product image</h1>
+            <h4>Only .jpg and .png images supported</h4>
+            
             <div {...getRootProps({style})}>
                 <input{...getInputProps()} />
             
