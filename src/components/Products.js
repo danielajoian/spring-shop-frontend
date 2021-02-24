@@ -29,7 +29,9 @@ export default function Products() {
           /> */}
             <Card.Img 
               variant="top"
-              src={`http://localhost:8080/api/product/${p.id}/image/download`}
+              src={p.imageLink ?
+                `http://localhost:8080/api/product/${p.id}/image/download`
+                : '/no-img.png'}
               className="img-fluid"
             />
         </div>
