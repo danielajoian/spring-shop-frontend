@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "./ProductDetail.css";
 
 export default function ProductDetail(props) {
@@ -91,6 +92,7 @@ export default function ProductDetail(props) {
                 </span>
               </Card.Text>
             </Card.Body>
+            <Link to={`/${data.user.id}/products`}><span>More products from this user</span></Link>
           </Card>
         </Col>
       </Row>

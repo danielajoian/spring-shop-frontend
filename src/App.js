@@ -8,6 +8,7 @@ import ProductDetail from "./components/ProductDetail";
 import About from "./components/About";
 import Form from "./components/add-product-form/Form";
 import FormFailed from "./components/add-product-form/FormFailed";
+import ProductsByUser from "./components/ProductsByUser";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/product/:productId" component={ProductDetail}></Route>
           <Route path="/add-product" component={Form}></Route>
           <Route path="/vague-error" component={FormFailed}></Route>
+          <Route path="/:userId/products" component={ProductsByUser}></Route>
         </div>
         <Footer />
       </div>
