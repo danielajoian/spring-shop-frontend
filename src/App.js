@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import ProductDetail from "./components/ProductDetail";
 import About from "./components/About";
 import Form from "./components/add-product-form/Form";
+import FormFailed from "./components/add-product-form/FormFailed";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/about" component={About}></Route>
           <Route path="/product/:productId" component={ProductDetail}></Route>
           <Route path="/add-product" component={Form}></Route>
+          <Route path="/vague-error" component={FormFailed}></Route>
         </div>
         <Footer />
       </div>

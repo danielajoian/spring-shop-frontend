@@ -3,12 +3,14 @@ import { Button } from 'react-bootstrap';
 import React, {useCallback, useState, useMemo, useEffect} from 'react';
 import {useDropzone} from 'react-dropzone';
 import './ImageDropzone.css';
+import FromSuccess from './FromSuccess';
 
 const ImageDropzone = (props) => {
 
 
     const [form, setForm] = useState(null);
     const [files, setFiles] = useState([]);
+    const [imgIsUploaded, setImgIsUploaded] = useState(false);
 
     const onDrop = acceptedFiles => {
 
@@ -34,6 +36,7 @@ const ImageDropzone = (props) => {
         }).then(() => {
             console.log("file uploaded");
             // Redirect to "FormSuccess.js" after file is uploaded
+            setImgIsUploaded(true);
         }).catch(err => {
             console.log(err);
             // Redirect to "Something went wrong" if it failed
@@ -131,19 +134,30 @@ const ImageDropzone = (props) => {
         isDragAccept
       ]);
 
-    return (
+    const dropzone = (
         <div className="dropzone-container">
             <h1>Add your product image</h1>
             <div {...getRootProps({style})}>
                 <input{...getInputProps()} />
-             
-             <p>Drag 'n' drop an image here, or click to select from your files</p>
+            
+            <p>Drag 'n' drop an image here, or click to select from your files</p>
             </div>
             <aside style={thumbsContainer}>
                 {thumbs}
             </aside>
             <Button id="submit" onClick={handleSubmit}>Submit</Button>
         </div>
+    ) 
+
+    return (
+        <React.Fragment>
+        {
+            !imgIsUploaded 
+                ? dropzone
+                : <FromSuccess/>
+        }
+        </React.Fragment>
+
     )
 }
 
