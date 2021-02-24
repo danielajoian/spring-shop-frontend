@@ -75,7 +75,7 @@ export default function ProductDetail(props) {
 
             <Card.Body>
               <Card.Title className="primary-text" style={sellerNameStyle}>
-                {data.user.name}
+                {data.user.firstName + " " + data.user.lastName}
               </Card.Title>
 
               <Card.Text className="primary-text">
