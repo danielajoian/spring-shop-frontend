@@ -6,13 +6,14 @@ import "./ProductDetail.css";
 export default function ProductDetail(props) {
   const productId = props.match.params.productId;
   const userId = props.match.params.userId;
+  
 
   // Fetch product data
   const [data, setData] = useState({ user: {} });
 
   useEffect(() => {
     const fetchData = async () => {
-      // const userRes = await axios(`http://localhost:8080/api/user/${userId}`);
+  
       const productRes = await axios(
         `http://localhost:8080/api/product/${productId}`
       );
@@ -22,6 +23,8 @@ export default function ProductDetail(props) {
 
     fetchData();
   }, []);
+
+  console.log(data);
 
   const formattedPrice = parseInt(data.price).toLocaleString("en-US", {
     style: "currency",
@@ -45,7 +48,9 @@ export default function ProductDetail(props) {
               /> */}
               <Card.Img 
                 variant="top"
-                src={`http://localhost:8080/api/product/${productId}/image/download`}
+                src={data.imageLink ?
+                      `http://localhost:8080/api/product/${productId}/image/download`
+                      : '/no-img.png'}
                 className="img-fluid"
               />
             </div>
