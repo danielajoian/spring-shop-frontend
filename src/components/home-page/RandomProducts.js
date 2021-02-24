@@ -43,10 +43,15 @@ export default function RandomProducts() {
     return (
       <Card style={cardStyle}>
         <div className="card-img-container">
-          <Card.Img
+          {/* <Card.Img
             style={cardImgStyle}
             variant="top"
             src={p.imageLink}
+            className="img-fluid"
+          /> */}
+          <Card.Img 
+            variant="top"
+            src={`http://localhost:8080/api/product/${p.id}/image/download`}
             className="img-fluid"
           />
         </div>

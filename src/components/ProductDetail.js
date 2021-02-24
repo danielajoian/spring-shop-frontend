@@ -28,11 +28,6 @@ export default function ProductDetail(props) {
     currency: "USD",
   });
 
-  console.log(data);
-  // console.log(data.price);
-  console.log(data.user.email);
-
-  // return <h1>Hello</h1>;
   return (
     <Container style={containerStyle}>
       <Row></Row>

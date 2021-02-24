@@ -56,7 +56,7 @@ export default function AddProduct(props) {
             {errors.description && <p>{errors.description}</p>}
           </Form.Group>
         </Form.Row>
-        <Form.Row>
+        <Form.Row className="align-items-center justify-content-center">
           <Form.Group controlId="category">
             <Form.Label>Select Category</Form.Label>
             <Form.Control
@@ -75,7 +75,7 @@ export default function AddProduct(props) {
             </Form.Control>
             {errors.category && <p>{errors.category}</p>}
           </Form.Group>
-          <Form.Group as={Col} controlId="imageLink">
+          {/* <Form.Group as={Col} controlId="imageLink">
             <Form.Label className="form-label">Image Link</Form.Label>
             <Form.Control
               className="form-input"
@@ -84,10 +84,10 @@ export default function AddProduct(props) {
               value={values.imageLink}
               onChange={handleChange}
             />
-          </Form.Group>
+          </Form.Group> */}
         </Form.Row>
         <Button variant="primary" type="submit">
-          Submit
+          Next step
         </Button>
       </Form>
     </div>
