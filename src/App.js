@@ -9,6 +9,8 @@ import About from "./components/About";
 import Form from "./components/add-product-form/Form";
 import FormFailed from "./components/add-product-form/FormFailed";
 import ProductsByUser from "./components/ProductsByUser";
+import LoginFrom from "./components/login/LoginForm";
+import RegisterFrom from "./components/register/RegisterForm";
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
           <Route path="/add-product" component={Form}></Route>
           <Route path="/vague-error" component={FormFailed}></Route>
           <Route path="/:userId/products" component={ProductsByUser}></Route>
+          <Route path="/register" component={RegisterFrom}></Route>
+          <Route path="/login" component={LoginFrom}></Route>
         </div>
         <Footer />
       </div>
