@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react';
+import { Link } from "react-router-dom";
+
 
 function SearchBox() {
     const [searchWord, setSearchWord] = useState('');
@@ -37,7 +39,7 @@ function SearchBox() {
                     return (
                         <div className="user" key={key}>
                             <p>
-                                {value.title}
+                                <Link to={`/product/${value.id}`}>{value.title}</Link>
                             </p>
                         </div>
                     );
