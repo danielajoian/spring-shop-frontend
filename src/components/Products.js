@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Card, CardColumns } from "react-bootstrap";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import SearchBox from "./SearchBox";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
@@ -44,6 +45,7 @@ export default function Products() {
 
   return (
     <div className="container" style={cardContainerStyle}>
+      <SearchBox />
       <div className="row">{productCards}</div>
     </div>
   );
