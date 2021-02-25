@@ -51,6 +51,7 @@ export default function RandomProducts() {
           /> */}
           <Card.Img 
             variant="top"
+            style={cardImgStyle}
             src={p.imageLink ?
               `http://localhost:8080/api/product/${p.id}/image/download`
               : '/no-img.png'}
