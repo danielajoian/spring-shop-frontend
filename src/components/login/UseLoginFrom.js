@@ -37,6 +37,7 @@ const UseRegisterForm = () => {
             window.sessionStorage.setItem('userName', res.data.firstName + " " + res.data.lastName);
             window.sessionStorage.setItem('userId', res.data.id);
             history.push("/");
+            window.location.reload();
           } else {
             setErrors({message: "Invalid email or password!"})
           }
