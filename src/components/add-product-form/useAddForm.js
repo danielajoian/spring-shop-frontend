@@ -8,7 +8,12 @@ const useAddForm = (submitForm, validate) => {
     price: "",
     category: "",
     imageLink: "",
+    user: {}
   });
+
+  const userId = window.sessionStorage.getItem('userId');
+
+  const [user, setUser] = useState();
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -29,12 +34,21 @@ const useAddForm = (submitForm, validate) => {
   };
 
   useEffect(() => {
+    axios.get(`http://localhost:8080/api/user/${userId}`)
+      .then(res => {
+        setUser(res.data);
+      })
+  }, [])
+
+  useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
+      values.user = user;
       axios.post("http://localhost:8080/api/product", values);
 
       submitForm();
     }
   }, [errors]);
+
 
   return { values, handleChange, handleSubmit, errors };
 };

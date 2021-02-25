@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import ProductDetail from "./components/ProductDetail";
 import About from "./components/About";
 import Form from "./components/add-product-form/Form";
+import LoginFrom from "./components/login/LoginForm";
+import RegisterFrom from "./components/register/RegisterForm";
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
           <Route path="/about" component={About}></Route>
           <Route path="/product/:productId" component={ProductDetail}></Route>
           <Route path="/add-product" component={Form}></Route>
+          <Route path="/register" component={RegisterFrom}></Route>
+          <Route path="/login" component={LoginFrom}></Route>
         </div>
         <Footer />
       </div>

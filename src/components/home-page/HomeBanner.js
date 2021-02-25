@@ -55,9 +55,22 @@ export default function HomeTop() {
   const history = useHistory();
 
   const routeChange = () => {
-    let path = "/add-product";
+    let path = "";
+    if (window.sessionStorage.getItem('userName') === null) {
+      path = "/register";
+    } else {
+      path = "/add-product";
+    }
     history.push(path);
   };
+
+  const getButtonName = () => {
+    if (window.sessionStorage.getItem('userName') === null) {
+      return "Register";
+    } else {
+      return "Add a Product";
+    }
+  }
 
   return (
     <div style={pageStyle}>
@@ -72,7 +85,7 @@ export default function HomeTop() {
           onMouseLeave={hoverOut}
           onClick={routeChange}
         >
-          Add a product
+          {getButtonName()}
         </button>
       </div>
     </div>
