@@ -6,9 +6,13 @@ import SearchBox from "./SearchBox";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
+
+  const token = `Bearer ${window.localStorage.getItem("token")}`;
   const getProducts = () => {
     axios
-      .get("http://localhost:8080/api/product/")
+      .get("http://localhost:8080/api/product/", {
+        headers: { Authorization: token },
+      })
       .then((res) => setProducts(res.data));
   };
 
@@ -16,12 +20,11 @@ export default function Products() {
 
   return (
     <div className="container" style={cardContainerStyle}>
-        <SearchBox />
+      <SearchBox />
 
       <div className="row">
         <ProductCards products={products} />
       </div>
-      
     </div>
   );
 }

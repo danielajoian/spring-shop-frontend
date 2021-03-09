@@ -5,8 +5,7 @@ import "./Home.css";
 import About from "../About";
 
 export default function Home() {
-
-  console.log(window.sessionStorage.getItem('userName'));
+  console.log(window.localStorage.getItem("userName"));
 
   return (
     <div id="home-container">

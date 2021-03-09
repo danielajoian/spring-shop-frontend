@@ -56,7 +56,7 @@ export default function HomeTop() {
 
   const routeChange = () => {
     let path = "";
-    if (window.sessionStorage.getItem('userName') === null) {
+    if (window.localStorage.getItem("userName") === null) {
       path = "/register";
     } else {
       path = "/add-product";
@@ -65,12 +65,12 @@ export default function HomeTop() {
   };
 
   const getButtonName = () => {
-    if (window.sessionStorage.getItem('userName') === null) {
+    if (window.localStorage.getItem("userName") === null) {
       return "Register";
     } else {
       return "Add a Product";
     }
-  }
+  };
 
   return (
     <div style={pageStyle}>
