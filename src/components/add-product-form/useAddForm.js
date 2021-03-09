@@ -6,6 +6,7 @@ const useAddForm = (submitForm, validate, setNewProductId) => {
     title: "",
     description: "",
     price: "",
+    date: "",
     category: "",
     imageLink: "",
     user: {}

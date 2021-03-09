@@ -1,8 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 import { Form, Col, Button } from "react-bootstrap";
 import useAddForm from "./useAddForm";
 import validate from "./addProductValidation";
 import "./AddProduct.css";
+import DatePicker from "react-datepicker";
+import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 import ImageDropzone from "./ImageDropzone";
 
 export default function AddProduct(props) {
@@ -11,6 +13,8 @@ export default function AddProduct(props) {
     validate,
     props.setNewProductId
   );
+
+  const [startDate, setStartDate] = useState(new Date());
 
   return (
     <div className="form-container">
@@ -85,6 +89,19 @@ export default function AddProduct(props) {
               onChange={handleChange}
             />
           </Form.Group> */}
+        </Form.Row>
+        <Form.Row>
+          <Form.Group>
+            <Form.Label>Select Date</Form.Label>
+            <Form.Control
+                className="form-input"
+                name="date"
+                placeholder="Ex: 2021-03-09"
+                value={values.date}
+                onChange={handleChange}
+            >
+            </Form.Control>
+          </Form.Group>
         </Form.Row>
         <Button variant="primary" type="submit">
           Next step

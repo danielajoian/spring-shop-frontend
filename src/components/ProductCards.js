@@ -32,7 +32,7 @@ const ProductCards = (props) => {
               <Card.Text style={priceStyle}>${p.price}</Card.Text>
             </Card.Body>
             <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
+              <small className="text-muted">Last updated {p.timePassedSinceTheAnnounce} days ago</small>
             </Card.Footer>
           </Card>
         );

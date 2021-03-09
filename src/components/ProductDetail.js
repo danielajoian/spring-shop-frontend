@@ -66,7 +66,7 @@ export default function ProductDetail(props) {
               </Card.Text>
             </Card.Body>
             <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
+              <small className="text-muted">Last updated {data.timePassedSinceTheAnnounce} ago</small>
             </Card.Footer>
           </Card>
         </Col>
