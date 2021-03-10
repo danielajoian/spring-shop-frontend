@@ -8,10 +8,10 @@ const useAddForm = (submitForm, validate, setNewProductId) => {
     price: "",
     category: "",
     imageLink: "",
-    user: {}
+    user: {},
   });
 
-  const userId = window.sessionStorage.getItem('userId');
+  const userId = window.sessionStorage.getItem("userId");
 
   const [user, setUser] = useState();
 
@@ -34,22 +34,25 @@ const useAddForm = (submitForm, validate, setNewProductId) => {
   };
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/api/user/${userId}`)
-      .then(res => {
-        setUser(res.data);
-      })
-  }, [])
+    axios.get(`http://localhost:8080/api/user/${userId}`).then((res) => {
+      setUser(res.data);
+    });
+  }, []);
 
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       values.user = user;
-      axios.post("http://localhost:8080/api/product", values)
-      .then(res => setNewProductId({id: res.data.id}));
+      axios
+        .post("http://localhost:8080/api/product", values, {
+          headers: {
+            Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+          },
+        })
+        .then((res) => setNewProductId({ id: res.data.id }));
 
       submitForm();
     }
   }, [errors]);
-
 
   return { values, handleChange, handleSubmit, errors };
 };
