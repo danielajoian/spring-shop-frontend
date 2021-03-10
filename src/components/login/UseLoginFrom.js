@@ -25,24 +25,6 @@ const UseRegisterForm = () => {
     setIsSubmitting(true);
   };
 
-  /**
-   * Requests user ID and Name and stores it in localStorage
-   *
-   * This method is only called after a succesful JWT token validation
-   */
-  const setUserInfo = async () => {
-    const req = axios.get(
-      `http://localhost:8080/api/user/email/${values.email}`
-    );
-    const res = await req;
-
-    window.localStorage.setItem(
-      "userName",
-      res.data.firstName + " " + res.data.lastName
-    );
-    window.localStorage.setItem("userId", res.data.id);
-  };
-
   useEffect(() => {
     if (isSubmitting) {
       console.log("in useEffect");
