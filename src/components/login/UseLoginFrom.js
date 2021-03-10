@@ -56,22 +56,26 @@ const UseRegisterForm = () => {
           password: values.password,
         })
         .then((res) => {
-          // Get user data and store it in localStorage
-          setUserInfo();
+          console.log(res.data);
 
-          // Also, store the token in localStorage
+          // Store user info and the token in localStorage
+          window.localStorage.setItem(
+            "userName",
+            res.data.firstName + " " + res.data.lastName
+          );
+          window.localStorage.setItem("userId", res.data.id);
+
           window.localStorage.setItem("token", res.data.jwtToken);
 
           // Store a flag that lets us know the user has been logged in
           window.localStorage.setItem("isLogged", true);
+
+          history.push("/");
+          window.location.reload();
         })
         .catch(() => {
           setErrors({ message: "Invalid email/password" });
           setIsSubmitting(false);
-        })
-        .finally(() => {
-          history.push("/");
-          window.location.reload();
         });
     }
   }, [isSubmitting]);
