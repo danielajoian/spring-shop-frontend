@@ -11,6 +11,7 @@ import FormFailed from "./components/add-product-form/FormFailed";
 import ProductsByUser from "./components/ProductsByUser";
 import LoginFrom from "./components/login/LoginForm";
 import RegisterFrom from "./components/register/RegisterForm";
+import EditProduct from "./components/edit/EditProduct";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
           <Route path="/:userId/products" component={ProductsByUser}></Route>
           <Route path="/register" component={RegisterFrom}></Route>
           <Route path="/login" component={LoginFrom}></Route>
+          <Route path="/update/:productId" component={EditProduct}></Route>
         </div>
         <Footer />
       </div>

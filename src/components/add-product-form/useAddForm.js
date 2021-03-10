@@ -11,7 +11,7 @@ const useAddForm = (submitForm, validate, setNewProductId) => {
     user: {}
   });
 
-  const userId = window.sessionStorage.getItem('userId');
+  const userId = window.localStorage.getItem('userId');
 
   const [user, setUser] = useState();
 

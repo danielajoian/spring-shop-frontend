@@ -5,8 +5,9 @@ import { Link } from "react-router-dom";
 import "./ProductDetail.css";
 
 export default function ProductDetail(props) {
+  // Gets parameter from link
   const productId = props.match.params.productId;
-  const userId = props.match.params.userId;
+  // const userId = props.match.params.userId;
   
 
   // Fetch product data
@@ -26,6 +27,10 @@ export default function ProductDetail(props) {
   }, []);
 
   console.log(data);
+
+  const editButton = () => <React.Fragment>
+    <Link to={`/update/${productId}`} className="btn btn-primary">Edit Product</Link>
+  </React.Fragment>;
 
   const formattedPrice = parseInt(data.price).toLocaleString("en-US", {
     style: "currency",
@@ -94,6 +99,7 @@ export default function ProductDetail(props) {
             </Card.Body>
             <Link to={`/${data.user.id}/products`}><span>More products from this user</span></Link>
           </Card>
+          {data.user.id == window.localStorage.getItem("userId") ? editButton() : console.log(`${data.user.id + window.localStorage.getItem("userId")}`)}
         </Col>
       </Row>
     </Container>
