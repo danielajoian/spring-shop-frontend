@@ -3,6 +3,8 @@ import { Form, Col, Button } from "react-bootstrap";
 import useRegisterForm from "./UseRegisterForm";
 import validate from "./RegisterValidation"
 import "../add-product-form/AddProduct.css"
+import FromSuccess from "../add-product-form/FromSuccess";
+import FormFailed from "../add-product-form/FormFailed";
 
 export default function RegisterFrom() {
   const { values, handleChange, handleSubmit, errors } = useRegisterForm(validate);
@@ -87,7 +89,9 @@ export default function RegisterFrom() {
             {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
           </Form.Group>
         </Form.Row>
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit"
+                // onSubmit={errors ? <FromSuccess/> : <FormFailed/>}
+        >
           Register
         </Button>
       </Form>

@@ -13,7 +13,8 @@ export default function Form() {
   console.log(newProductId);
   return (
     <div>
-      {!isSubmitted ? <AddProduct submitForm={submitForm} setNewProductId={setNewProductId}/> : <ImageDropzone productId = {newProductId.id} />}
+      {!isSubmitted ? <AddProduct submitForm={submitForm} setNewProductId={setNewProductId}/>
+                    : <ImageDropzone productId = {newProductId.id} />}
     </div>
   );
 }

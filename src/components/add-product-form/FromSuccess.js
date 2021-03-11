@@ -3,7 +3,11 @@ import React from "react";
 export default function FromSuccess() {
   return (
     <div>
-      <img style={{ maxWidth: "200px" }} src="/success.png" alt="success"></img>
+      <img
+            // style={{maxWidth: "200px"}}
+            // src="/success.png"
+            src="/great.gif"
+            alt="success"/>
       <h1
         style={{
           fontSize: "4rem",

@@ -58,7 +58,8 @@ export default function HomeTop() {
     let path = "";
     if (window.localStorage.getItem("userName") === null) {
       path = "/register";
-    } else {
+    }
+    else {
       path = "/add-product";
     }
     history.push(path);

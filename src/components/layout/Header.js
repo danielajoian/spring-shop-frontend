@@ -63,6 +63,18 @@ export default function Header() {
     </React.Fragment>
   );
 
+  // const routeChange = () => {
+  //   let path = "";
+  //   if (window.localStorage.getItem("userName") === null) {
+  //     path = "/register";
+  //   } else {
+  //     path = "/add-product";
+  //   }
+  //   history.push(path);
+  // };
+  const history = useHistory();
+  let path = "";
+
   const isLogged = (
     <React.Fragment>
       <h5 style={pStyle}>
@@ -74,9 +86,25 @@ export default function Header() {
           {window.localStorage.getItem("userName")}
         </Link>
       </h5>
+
+      <Button
+          style={{ backgroundColor: "pink", color: "#2F4858" }}
+          onClick={() => {
+            path = "/add-product"
+            history.push(path);
+            // window.localStorage.clear();
+            // window.location.reload();
+          }}
+      >
+        Add Product
+      </Button>
+      &nbsp;&nbsp;&nbsp;
       <Button
         style={{ backgroundColor: "pink", color: "#2F4858" }}
         onClick={() => {
+          path = "/logout"
+          history.push(path);
+
           window.localStorage.clear();
           window.location.reload();
         }}

@@ -38,8 +38,9 @@ const UseRegisterForm = (validate) => {
         axios.post("http://localhost:8080/api/user", values)
         .then( res => {
           console.log(res.status)
-          if (res.status == 200) {
-            history.push("/login");
+          if (res.status === 200) {
+            // history.push("/login");
+            history.push("/success");
           }
         }, () => {
           setErrors({email: "Email taken"})

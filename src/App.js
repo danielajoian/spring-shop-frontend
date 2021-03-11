@@ -13,6 +13,8 @@ import LoginFrom from "./components/login/LoginForm";
 import RegisterFrom from "./components/register/RegisterForm";
 import EditProduct from "./components/edit/EditProduct";
 import { Component } from "react";
+import RegisterSuccess from "./components/register/RegisterSuccess";
+import Logout from "./components/login/Logout";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -40,16 +42,18 @@ function App() {
       <div className="App">
         <Header />
         <div id="main-container">
-          <Route exact path="/" component={Home}></Route>
-          <Route path="/products" component={Products}></Route>
-          <Route path="/about" component={About}></Route>
-          <Route path="/product/:productId" component={ProductDetail}></Route>
-          <PrivateRoute path="/add-product" component={Form}></PrivateRoute>
-          <Route path="/update/:productId" component={EditProduct}></Route>
-          <Route path="/vague-error" component={FormFailed}></Route>
-          <Route path="/:userId/products" component={ProductsByUser}></Route>
-          <Route path="/register" component={RegisterFrom}></Route>
-          <Route path="/login" component={LoginFrom}></Route>
+          <Route exact path="/" component={Home}/>
+          <Route path="/products" component={Products}/>
+          <Route path="/about" component={About}/>
+          <Route path="/product/:productId" component={ProductDetail}/>
+          <PrivateRoute path="/add-product" component={Form}/>
+          <Route path="/update/:productId" component={EditProduct}/>
+          <Route path="/vague-error" component={FormFailed}/>
+          <Route path="/success" component={RegisterSuccess}/>
+          <Route path="/logout" component={Logout}/>
+          <Route path="/:userId/products" component={ProductsByUser}/>
+          <Route path="/register" component={RegisterFrom}/>
+          <Route path="/login" component={LoginFrom}/>
         </div>
         <Footer />
       </div>
