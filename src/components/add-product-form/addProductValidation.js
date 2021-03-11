@@ -25,12 +25,12 @@ export default function validateInfo(values) {
     }
   }
 
+  // if (!values.dateOfAnnounce) {
+  //   errors.dateOfAnnounce = "Enter a date";
+  // }
+
   if (!values.category) {
     errors.category = "Select a category";
-  }
-
-  if (!values.date) {
-    errors.date = "Enter a date";
   }
 
   return errors;

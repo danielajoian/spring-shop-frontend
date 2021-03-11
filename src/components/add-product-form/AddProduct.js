@@ -58,9 +58,7 @@ export default function AddProduct(props) {
         </Form.Row>
 
         <Form.Row className="align-items-center justify-content-center">
-          <Form.Group
-              as={Col}
-              controlId="category">
+          <Form.Group as={Col} controlId="category">
             <Form.Label>Select Category</Form.Label>
             <Form.Control
               className="form-input"
@@ -89,22 +87,20 @@ export default function AddProduct(props) {
               onChange={handleChange}
             />
           </Form.Group> */}
-        {/*</Form.Row>*/}
+          {/*</Form.Row>*/}
 
-        {/*<Form.Row>*/}
-          <Form.Group
-              as={Col}
-              controlId="date">
+          {/*<Form.Row>*/}
+          {/* <Form.Group as={Col} controlId="date">
             <Form.Label className="form-label">Date</Form.Label>
             <Form.Control
-                className="form-input"
-                name="date"
-                placeholder="Ex: 2021-03-09"
-                value={values.date}
-                onChange={handleChange}
+              className="form-input"
+              name="date"
+              placeholder="Ex: 2021-03-09"
+              value={values.dateOfAnnounce}
+              onChange={handleChange}
             />
-            {errors.date && <p>{errors.date}</p>}
-          </Form.Group>
+            {errors.dateOfAnnounce && <p>{errors.dateOfAnnounce}</p>}
+          </Form.Group> */}
         </Form.Row>
 
         <Button variant="primary" type="submit">

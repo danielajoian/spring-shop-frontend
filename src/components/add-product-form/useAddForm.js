@@ -6,17 +6,13 @@ const useAddForm = (submitForm, validate, setNewProductId) => {
     title: "",
     description: "",
     price: "",
-    date: "",
+    dateOfAnnounce: "",
     category: "",
     imageLink: "",
     user: {},
   });
 
-<<<<<<< HEAD
   const userId = window.localStorage.getItem("userId");
-=======
-  const userId = window.localStorage.getItem('userId');
->>>>>>> origin/update-info
 
   const [user, setUser] = useState();
 
@@ -40,6 +36,7 @@ const useAddForm = (submitForm, validate, setNewProductId) => {
 
   useEffect(() => {
     axios.get(`http://localhost:8080/api/user/${userId}`).then((res) => {
+      // console.log(res.data);
       setUser(res.data);
     });
   }, []);
@@ -47,6 +44,8 @@ const useAddForm = (submitForm, validate, setNewProductId) => {
   useEffect(() => {
     if (Object.keys(errors).length === 0 && isSubmitting) {
       values.user = user;
+      values.dateOfAnnounce = Date.now();
+      console.log("post product");
       axios
         .post("http://localhost:8080/api/product", values, {
           headers: {

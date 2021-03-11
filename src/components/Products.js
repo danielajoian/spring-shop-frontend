@@ -36,8 +36,11 @@ export default function Products() {
       case "Name":
         return (a, b) =>
           a.title.toLowerCase().localeCompare(b.title.toLowerCase());
+      case "New":
+        return (a, b) => b.dateOfAnnounce - a.dateOfAnnounce;
+
       default:
-        return (item) => item.id;
+        return (a, b) => a.dateOfAnnounce - b.dateOfAnnounce;
     }
   };
 
@@ -98,7 +101,8 @@ export default function Products() {
             setFilters({ ...filters, sorting: e.target.value });
           }}
         >
-          <option value="">Choose...</option>
+          <option value="">Date (oldest first)</option>
+          <option value="New">Date (newest first)</option>
           <option value="Price">Price</option>
           <option value="Name">Name</option>
         </Form.Control>

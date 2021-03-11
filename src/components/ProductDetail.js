@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Card, Button } from "react-bootstrap";
 import { Link, useHistory, Redirect } from "react-router-dom";
 import "./ProductDetail.css";
+import {getDateString} from "./ProductCards";
 
 export default function ProductDetail(props) {
   // Gets parameter from link
@@ -60,14 +61,14 @@ export default function ProductDetail(props) {
     currency: "USD",
   });
 
-  const today = new Date();
-  const announceDate = new Date(data.dateOfAnnounce);
-
-  //calculate total number of seconds between two dates
-  const totalSeconds = Math.abs(today - announceDate) / 1000;
-
-  //calculate days difference by dividing total seconds in a day
-  const daysDifference = Math.floor(totalSeconds / (60 * 60 * 24));
+  // const today = new Date();
+  // const announceDate = new Date(data.dateOfAnnounce);
+  //
+  // //calculate total number of seconds between two dates
+  // const totalSeconds = Math.abs(today - announceDate) / 1000;
+  //
+  // //calculate days difference by dividing total seconds in a day
+  // const daysDifference = Math.floor(totalSeconds / (60 * 60 * 24));
 
   return (
     <Container style={containerStyle}>
@@ -79,11 +80,7 @@ export default function ProductDetail(props) {
             style={{ boxShadow: "-1px 1px 15px -6px rgba(0, 0, 0, 0.652)" }}
           >
             <div className="card-img-container">
-              {/* <Card.Img
-                variant="top"
-                src={data.imageLink}
-                className="img-fluid"
-              /> */}
+
               <Card.Img
                 variant="top"
                 src={
@@ -104,13 +101,10 @@ export default function ProductDetail(props) {
                 {data.description}
               </Card.Text>
 
-              <Card.Text style={{ fontSize: "1.25rem" }}>
-                {data.dateOfAnnounce}
-              </Card.Text>
             </Card.Body>
             <Card.Footer>
               <small className="text-muted">
-                Last updated {daysDifference} days ago
+                Added {getDateString(data.dateOfAnnounce)}
               </small>
             </Card.Footer>
           </Card>
