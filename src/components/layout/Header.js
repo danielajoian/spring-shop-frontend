@@ -75,6 +75,18 @@ export default function Header() {
         </Link>
       </h5>
       <Button
+          style={{ backgroundColor: "greenyellow", color: "#2F4858" }}
+          onClick={() => {
+
+            window.location.href = "/add-product"
+            // window.localStorage.clear();
+            // window.location.reload();
+          }}
+      >
+        Add Product
+      </Button>
+      &nbsp;&nbsp;&nbsp;
+      <Button
         style={{ backgroundColor: "pink", color: "#2F4858" }}
         onClick={() => {
           window.localStorage.clear();
