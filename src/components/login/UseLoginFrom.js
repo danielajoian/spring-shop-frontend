@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
-const UseRegisterForm = () => {
+const UseRegisterForm = (from) => {
   const history = useHistory();
 
   const [values, setValues] = useState({
@@ -31,7 +31,7 @@ const UseRegisterForm = () => {
 
       // Axios POST on the "/authenticate" endpoint of the api
       // The server checks if the credentials (email & password) are valid
-      // And returns a JWT token
+      // And returns the JWT token, the user's name and ID
       axios
         .post("http://localhost:8080/authenticate", {
           username: values.email,
@@ -52,7 +52,7 @@ const UseRegisterForm = () => {
           // Store a flag that lets us know the user has been logged in
           window.localStorage.setItem("isLogged", true);
 
-          history.push("/");
+          history.push(from.pathname);
           window.location.reload();
         })
         .catch(() => {

@@ -5,9 +5,9 @@ import bg from "../../try.jpg";
 export default function HomeTop() {
   const pageStyle = {
     background: `url(${bg}) no-repeat center center`,
-    webkitBackgroundSize: "cover",
-    mozBackgroundSize: "cover",
-    oBackgroundSize: "cover",
+    WebkitBackgroundSize: "cover",
+    MozBackgroundSize: "cover",
+    OBackgroundSize: "cover",
     backgroundSize: "cover",
     height: "900px",
     justifyContent: "center",

@@ -1,10 +1,13 @@
 import React from "react";
 import { Form, Col, Button } from "react-bootstrap";
 import useLoginForm from "./UseLoginFrom";
-import "../add-product-form/AddProduct.css"
+import "../add-product-form/AddProduct.css";
 
-export default function LoginFrom() {
-  const { values, handleChange, handleSubmit, errors } = useLoginForm();
+export default function LoginFrom(props) {
+  console.log(props);
+  const { from } = props.location.state || { from: { pathname: "/" } };
+  console.log(from);
+  const { values, handleChange, handleSubmit, errors } = useLoginForm(from);
 
   return (
     <div className="form-container">
