@@ -7,7 +7,6 @@ import "./ProductDetail.css";
 export default function ProductDetail(props) {
   const productId = props.match.params.productId;
   const userId = props.match.params.userId;
-  
 
   // Fetch product data
   const [data, setData] = useState({ user: {} });
@@ -27,10 +26,21 @@ export default function ProductDetail(props) {
 
   console.log(data);
 
-  const formattedPrice = parseInt(data.price).toLocaleString("en-US", {
+  const formattedPrice = parseInt(data.price)
+      .toLocaleString("en-US", {
     style: "currency",
     currency: "USD",
   });
+
+  const today = new Date();
+  const announceDate = new Date(data.dateOfAnnounce);
+
+  //calculate total number of seconds between two dates
+  const totalSeconds = Math.abs(today - announceDate) / 1000;
+
+  //calculate days difference by dividing total seconds in a day
+  const daysDifference = Math.floor (totalSeconds / (60 * 60 * 24));
+
 
   return (
     <Container style={containerStyle}>
@@ -56,7 +66,9 @@ export default function ProductDetail(props) {
               />
             </div>
             <Card.Body>
-              <Card.Title style={{ fontSize: "2rem" }}>{data.title}</Card.Title>
+              <Card.Title style={{ fontSize: "2rem" }}>
+                {data.title}
+              </Card.Title>
               <Card.Text style={{ fontSize: "1.5rem" }}>
                 {formattedPrice}
               </Card.Text>
@@ -64,35 +76,52 @@ export default function ProductDetail(props) {
               <Card.Text style={{ fontSize: "1.25rem" }}>
                 {data.description}
               </Card.Text>
+
+              <Card.Text style={{ fontSize: "1.25rem" }}>
+                {data.dateOfAnnounce}
+              </Card.Text>
             </Card.Body>
             <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
+
+              <small className="text-muted">
+                Last updated {daysDifference} days ago
+              </small>
+
             </Card.Footer>
           </Card>
         </Col>
         <Col md="4">
-          <Card className="seller-container" style={sellerContainerStyle}>
-            <span style={{ color: "white" }}>Seller info</span>
+          <Card className="seller-container"
+                style={sellerContainerStyle}>
+            <span style={{ color: "white" }}>
+              Seller info
+            </span>
 
             <Card.Body>
-              <Card.Title className="primary-text" style={sellerNameStyle}>
+              <Card.Title className="primary-text"
+                          style={sellerNameStyle}>
                 {data.user.firstName + " " + data.user.lastName}
               </Card.Title>
 
               <Card.Text className="primary-text">
                 E-mail:<br></br>
-                <span style={{ color: "white" }} className="secondary-text">
+                <span style={{ color: "white" }}
+                      className="secondary-text">
                   {data.user.email}
                 </span>
               </Card.Text>
               <Card.Text className="primary-text">
                 Phone: <br></br>
-                <span style={{ color: "white" }} className="secondary-text">
+                <span style={{ color: "white" }}
+                      className="secondary-text">
                   {data.user.phone}
                 </span>
               </Card.Text>
             </Card.Body>
-            <Link to={`/${data.user.id}/products`}><span>More products from this user</span></Link>
+
+            <Link to={`/${data.user.id}/products`}>
+              <span>More products from this user</span>
+            </Link>
           </Card>
         </Col>
       </Row>
