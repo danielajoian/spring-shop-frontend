@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function FromSuccess() {
+export default function FormFailed() {
   return (
     <div>
       <img style={{ maxWidth: "200px" }} src="/caution.png" alt="failed"></img>

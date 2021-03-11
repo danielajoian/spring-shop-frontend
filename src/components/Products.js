@@ -31,8 +31,10 @@ export default function Products() {
 
   const getSorting = (sortString) => {
     switch (sortString) {
-      case "Price":
+      case "PriceAsc":
         return (a, b) => a.price - b.price;
+      case "PriceDesc":
+        return (a, b) => b.price - a.price;
       case "Name":
         return (a, b) =>
           a.title.toLowerCase().localeCompare(b.title.toLowerCase());
@@ -68,7 +70,7 @@ export default function Products() {
   return (
     <div className="container" style={cardContainerStyle}>
       <SearchBox />
-
+      <hr/>
       <Form inline>
         <Form.Label className="my-1 mr-2" htmlFor="category">
           Category:
@@ -82,9 +84,9 @@ export default function Products() {
             setFilters({ ...filters, category: e.target.value });
           }}
         >
-          <option value="">Choose...</option>
+          <option value="">All</option>
           <option value="ELECTRONICS">Electronics</option>
-          <option value="SPORTS">Sports</option>
+          <option value="SPORTS">Sports & Hobby</option>
           <option value="HOUSEHOLD">Household</option>
           <option value="ESTATE">Real Estate</option>
         </Form.Control>
@@ -103,7 +105,8 @@ export default function Products() {
         >
           <option value="">Date (oldest first)</option>
           <option value="New">Date (newest first)</option>
-          <option value="Price">Price</option>
+          <option value="PriceAsc">Price (Ascending)</option>
+          <option value="PriceDesc">Price (Descending)</option>
           <option value="Name">Name</option>
         </Form.Control>
       </Form>

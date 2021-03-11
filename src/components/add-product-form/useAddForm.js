@@ -49,7 +49,8 @@ const useAddForm = (submitForm, validate, setNewProductId) => {
       axios
         .post("http://localhost:8080/api/product", values, {
           headers: {
-            Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+            "Authorization": `Bearer ${window.localStorage.getItem("token")}`,
+            'Access-Control-Allow-Origin' : '*'
           },
         })
         .then((res) => setNewProductId({ id: res.data.id }));

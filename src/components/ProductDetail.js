@@ -61,15 +61,6 @@ export default function ProductDetail(props) {
     currency: "USD",
   });
 
-  // const today = new Date();
-  // const announceDate = new Date(data.dateOfAnnounce);
-  //
-  // //calculate total number of seconds between two dates
-  // const totalSeconds = Math.abs(today - announceDate) / 1000;
-  //
-  // //calculate days difference by dividing total seconds in a day
-  // const daysDifference = Math.floor(totalSeconds / (60 * 60 * 24));
-
   return (
     <Container style={containerStyle}>
       <Row></Row>

@@ -13,6 +13,11 @@ const ProductCards = (props) => {
       pathname: `/product/${p.id}`,
     };
 
+    const formattedPrice = parseInt(p.price).toLocaleString("en-US", {
+      style: "currency",
+      currency: "USD",
+    });
+
     return (
       <Card className="col-auto mb-3" style={cardStyle}>
         <div className="card-img-container" style={imgContainerStyle}>
@@ -32,7 +37,7 @@ const ProductCards = (props) => {
             <Card.Title style={titleStyle}>{p.title}</Card.Title>
           </Link>
 
-          <Card.Text style={priceStyle}>${p.price}</Card.Text>
+          <Card.Text style={priceStyle}>{formattedPrice}</Card.Text>
 
           {/*<Card.Text style={priceStyle}>{p.dateOfAnnounce}</Card.Text>*/}
         </Card.Body>

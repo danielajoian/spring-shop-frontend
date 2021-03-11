@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
-const UseRegisterForm = (from) => {
+const UseLoginForm = (from) => {
   const history = useHistory();
 
   const [values, setValues] = useState({
@@ -65,4 +65,4 @@ const UseRegisterForm = (from) => {
   return { values, handleChange, handleSubmit, errors };
 };
 
-export default UseRegisterForm;
+export default UseLoginForm;

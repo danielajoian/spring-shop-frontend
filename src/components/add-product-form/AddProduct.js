@@ -32,6 +32,8 @@ export default function AddProduct(props) {
           <Form.Group as={Col} controlId="price">
             <Form.Label className="form-label">Price</Form.Label>
             <Form.Control
+              type="number"
+              step="1"
               className="form-input"
               name="price"
               placeholder="Enter product price"
@@ -66,7 +68,6 @@ export default function AddProduct(props) {
               name="category"
               value={values.category}
               onChange={handleChange}
-              defaultValue=""
             >
               <option value="">Choose...</option>
               <option value="ELECTRONICS">Electronics</option>
