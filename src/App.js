@@ -11,6 +11,7 @@ import FormFailed from "./components/add-product-form/FormFailed";
 import ProductsByUser from "./components/ProductsByUser";
 import LoginFrom from "./components/login/LoginForm";
 import RegisterFrom from "./components/register/RegisterForm";
+import EditProduct from "./components/edit/EditProduct";
 import { Component } from "react";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
@@ -21,11 +22,12 @@ const PrivateRoute = ({ component: Component, ...rest }) => (
         <Component {...props} />
       ) : (
         <Redirect
+          // Redirect the user to login
+          // Pass the last route accessed in the state to redirect to it later
           to={{
             pathname: "/login",
             state: { from: props.location },
           }}
-          // to="/login"
         />
       )
     }
@@ -43,6 +45,7 @@ function App() {
           <Route path="/about" component={About}></Route>
           <Route path="/product/:productId" component={ProductDetail}></Route>
           <PrivateRoute path="/add-product" component={Form}></PrivateRoute>
+          <Route path="/update/:productId" component={EditProduct}></Route>
           <Route path="/vague-error" component={FormFailed}></Route>
           <Route path="/:userId/products" component={ProductsByUser}></Route>
           <Route path="/register" component={RegisterFrom}></Route>

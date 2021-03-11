@@ -1,19 +1,22 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col, Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Link, useHistory, Redirect } from "react-router-dom";
 import "./ProductDetail.css";
 
 export default function ProductDetail(props) {
+  // Gets parameter from link
   const productId = props.match.params.productId;
-  const userId = props.match.params.userId;
 
   // Fetch product data
   const [data, setData] = useState({ user: {} });
 
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const history = useHistory();
+
   useEffect(() => {
     const fetchData = async () => {
-  
       const productRes = await axios(
         `http://localhost:8080/api/product/${productId}`
       );
@@ -26,8 +29,33 @@ export default function ProductDetail(props) {
 
   console.log(data);
 
-  const formattedPrice = parseInt(data.price)
-      .toLocaleString("en-US", {
+  const buttons = () => (
+    <React.Fragment>
+      <Link to={`/update/${productId}`} className="btn btn-primary">
+        Edit Product
+      </Link>
+      <Button onClick={(e) => delProduct(e)}>Delete Product</Button>
+    </React.Fragment>
+  );
+
+  const delProduct = (e) => {
+    e.preventDefault();
+    setIsSubmitted(true);
+  };
+
+  useEffect(() => {
+    if (isSubmitted) {
+      axios.delete(`http://localhost:8080/api/product/${productId}`, {
+        headers: {
+          Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+        },
+      });
+      setIsSubmitted(false);
+      history.push("/");
+    }
+  }, [isSubmitted]);
+
+  const formattedPrice = parseInt(data.price).toLocaleString("en-US", {
     style: "currency",
     currency: "USD",
   });
@@ -39,8 +67,7 @@ export default function ProductDetail(props) {
   const totalSeconds = Math.abs(today - announceDate) / 1000;
 
   //calculate days difference by dividing total seconds in a day
-  const daysDifference = Math.floor (totalSeconds / (60 * 60 * 24));
-
+  const daysDifference = Math.floor(totalSeconds / (60 * 60 * 24));
 
   return (
     <Container style={containerStyle}>
@@ -57,18 +84,18 @@ export default function ProductDetail(props) {
                 src={data.imageLink}
                 className="img-fluid"
               /> */}
-              <Card.Img 
+              <Card.Img
                 variant="top"
-                src={data.imageLink ?
-                      `http://localhost:8080/api/product/${productId}/image/download`
-                      : '/no-img.png'}
+                src={
+                  data.imageLink
+                    ? `http://localhost:8080/api/product/${productId}/image/download`
+                    : "/no-img.png"
+                }
                 className="img-fluid"
               />
             </div>
             <Card.Body>
-              <Card.Title style={{ fontSize: "2rem" }}>
-                {data.title}
-              </Card.Title>
+              <Card.Title style={{ fontSize: "2rem" }}>{data.title}</Card.Title>
               <Card.Text style={{ fontSize: "1.5rem" }}>
                 {formattedPrice}
               </Card.Text>
@@ -82,38 +109,30 @@ export default function ProductDetail(props) {
               </Card.Text>
             </Card.Body>
             <Card.Footer>
-
               <small className="text-muted">
                 Last updated {daysDifference} days ago
               </small>
-
             </Card.Footer>
           </Card>
         </Col>
         <Col md="4">
-          <Card className="seller-container"
-                style={sellerContainerStyle}>
-            <span style={{ color: "white" }}>
-              Seller info
-            </span>
+          <Card className="seller-container" style={sellerContainerStyle}>
+            <span style={{ color: "white" }}>Seller info</span>
 
             <Card.Body>
-              <Card.Title className="primary-text"
-                          style={sellerNameStyle}>
+              <Card.Title className="primary-text" style={sellerNameStyle}>
                 {data.user.firstName + " " + data.user.lastName}
               </Card.Title>
 
               <Card.Text className="primary-text">
                 E-mail:<br></br>
-                <span style={{ color: "white" }}
-                      className="secondary-text">
+                <span style={{ color: "white" }} className="secondary-text">
                   {data.user.email}
                 </span>
               </Card.Text>
               <Card.Text className="primary-text">
                 Phone: <br></br>
-                <span style={{ color: "white" }}
-                      className="secondary-text">
+                <span style={{ color: "white" }} className="secondary-text">
                   {data.user.phone}
                 </span>
               </Card.Text>
@@ -123,6 +142,11 @@ export default function ProductDetail(props) {
               <span>More products from this user</span>
             </Link>
           </Card>
+          {data.user.id == window.localStorage.getItem("userId")
+            ? buttons()
+            : console.log(
+                `${data.user.id + window.localStorage.getItem("userId")}`
+              )}
         </Col>
       </Row>
     </Container>

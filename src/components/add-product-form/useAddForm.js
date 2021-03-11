@@ -12,7 +12,11 @@ const useAddForm = (submitForm, validate, setNewProductId) => {
     user: {},
   });
 
+<<<<<<< HEAD
   const userId = window.localStorage.getItem("userId");
+=======
+  const userId = window.localStorage.getItem('userId');
+>>>>>>> origin/update-info
 
   const [user, setUser] = useState();
 
