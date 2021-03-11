@@ -29,6 +29,10 @@ export default function validateInfo(values) {
     errors.category = "Select a category";
   }
 
+  if (!values.date) {
+    errors.date = "Enter a date";
+  }
+
   return errors;
 }
 

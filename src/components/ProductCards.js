@@ -11,10 +11,20 @@ const ProductCards = (props) => {
         const newLinkTo = {
           pathname: `/product/${p.id}`,
         };
-    
+
+    const today = new Date();
+    const announceDate = new Date(p.dateOfAnnounce);
+
+    //calculate total number of seconds between two dates
+    const totalSeconds = Math.abs(today - announceDate) / 1000;
+
+    //calculate days difference by dividing total seconds in a day
+    const daysDifference = Math.floor (totalSeconds / (60 * 60 * 24));
+
         return (
           <Card className="col-auto mb-3" style={cardStyle}>
-            <div className="card-img-container" style={imgContainerStyle}>
+            <div className="card-img-container"
+                 style={imgContainerStyle}>
                 <Card.Img 
                   style={cardImgStyle}
                   variant="top"
@@ -30,9 +40,13 @@ const ProductCards = (props) => {
               </Link>
     
               <Card.Text style={priceStyle}>${p.price}</Card.Text>
+
+                <Card.Text style={priceStyle}>{p.dateOfAnnounce}</Card.Text>
             </Card.Body>
             <Card.Footer>
-              <small className="text-muted">Last updated 3 mins ago</small>
+
+              <small className="text-muted">Last updated {daysDifference} days ago</small>
+
             </Card.Footer>
           </Card>
         );
