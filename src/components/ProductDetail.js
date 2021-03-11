@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col, Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Link, useHistory, Redirect } from "react-router-dom";
 import "./ProductDetail.css";
 
 export default function ProductDetail(props) {
@@ -12,6 +12,10 @@ export default function ProductDetail(props) {
 
   // Fetch product data
   const [data, setData] = useState({ user: {} });
+
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const history = useHistory();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,9 +32,29 @@ export default function ProductDetail(props) {
 
   console.log(data);
 
-  const editButton = () => <React.Fragment>
+  const buttons = () => <React.Fragment>
     <Link to={`/update/${productId}`} className="btn btn-primary">Edit Product</Link>
+    <Button
+    onClick={(e) => delProduct(e)}
+    >Delete Product</Button>
   </React.Fragment>;
+
+  const delProduct = (e) => {
+    e.preventDefault();
+    setIsSubmitted(true);
+  }
+
+  useEffect(() => {
+    if (isSubmitted) {
+      axios.delete(`http://localhost:8080/api/product/${productId}`, {
+        headers: {
+          Authorization: `Bearer ${window.localStorage.getItem("token")}`,
+        }
+      });
+      setIsSubmitted(false);
+      history.push("/");
+    }
+  }, [isSubmitted]);
 
   const formattedPrice = parseInt(data.price).toLocaleString("en-US", {
     style: "currency",
@@ -99,7 +123,7 @@ export default function ProductDetail(props) {
             </Card.Body>
             <Link to={`/${data.user.id}/products`}><span>More products from this user</span></Link>
           </Card>
-          {data.user.id == window.localStorage.getItem("userId") ? editButton() : console.log(`${data.user.id + window.localStorage.getItem("userId")}`)}
+          {data.user.id == window.localStorage.getItem("userId") ? buttons() : console.log(`${data.user.id + window.localStorage.getItem("userId")}`)}
         </Col>
       </Row>
     </Container>
