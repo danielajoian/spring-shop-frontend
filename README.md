@@ -1,4 +1,4 @@
-# spring-shop-frontend
+# Spring Shop  -  frontend
 
 An e-comerce app that allows users to sell and buy goods that are already listed.
 
