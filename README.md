@@ -19,3 +19,11 @@ There is also a search bar where the items can be searched by name.
 
 
 There are fields that allow sorting the goods by date, by price (ascending or descending) or by category.
+
+
+Technologies used:
+* React
+* Bootstrap
+* Css
+* JavaScript
+* Node Js
