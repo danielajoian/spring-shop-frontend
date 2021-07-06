@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+******
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Technologies used:
+* React
+* Bootstrap
+* Css
+* JavaScript
+* Node Js
 
-## Available Scripts
+*****
+# Features
 
-In the project directory, you can run:
+* On the first page you can enter the site 
 
-### `npm start`
+* <img width="856" alt="first-page" src="https://user-images.githubusercontent.com/57388336/118113520-17a24c00-b3ef-11eb-9291-69c95824ffbd.png">
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* You can choose to register and this way you can add goods for sale
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+* <img width="851" alt="registration" src="https://user-images.githubusercontent.com/57388336/118113662-3b659200-b3ef-11eb-9f76-5d318bc57327.png">
 
-### `npm test`
+* If you already have an account you can choose the login button
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* <img width="856" alt="login" src="https://user-images.githubusercontent.com/57388336/118113762-5df7ab00-b3ef-11eb-8d88-821b2f4fa1f1.png">
 
-### `npm run build`
+* After login a button for adding products, one for logout and the name of the user appear on the top right of the page
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* <img width="868" alt="user-login" src="https://user-images.githubusercontent.com/57388336/118114136-dcece380-b3ef-11eb-8541-143dc8b7c5ed.png">
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* On the Products part of the site you can see all the products that have been listed so far
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* <img width="877" alt="products" src="https://user-images.githubusercontent.com/57388336/118114393-2fc69b00-b3f0-11eb-9372-a69da2180d4e.png">
 
-### `npm run eject`
+* You can search a product by name typing the name in the searchbox
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+* <img width="858" alt="searchbox" src="https://user-images.githubusercontent.com/57388336/118114461-4bca3c80-b3f0-11eb-8bc2-d3c4005cd440.png">
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* You can also can choose a category of products by selecting one from the dropbox
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+* <img width="856" alt="category" src="https://user-images.githubusercontent.com/57388336/118114703-9c419a00-b3f0-11eb-92e0-e76198032698.png">
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+* You can also sort the products by price, by name or by date it was added to the site
 
-## Learn More
+* <img width="861" alt="sort" src="https://user-images.githubusercontent.com/57388336/118114804-c1360d00-b3f0-11eb-884a-2275470f0cff.png">
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* If you are interested by a product you can click on it and see more details about it
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+* <img width="852" alt="product-detail" src="https://user-images.githubusercontent.com/57388336/118114925-eaef3400-b3f0-11eb-9e41-c6cbc79b2611.png">
 
-### Code Splitting
+* If you want to see all the product a user has listed you can click on the name and go to the page with all the products
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+* <img width="853" alt="products-from-user" src="https://user-images.githubusercontent.com/57388336/118115139-3efa1880-b3f1-11eb-9426-8b93f5534b1a.png">
 
-### Analyzing the Bundle Size
+* You can add your own product by filling in a form with details about the product
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+* <img width="866" alt="add-product" src="https://user-images.githubusercontent.com/57388336/118115231-5c2ee700-b3f1-11eb-80ec-74418aa1b0f0.png">
 
-### Making a Progressive Web App
+* Also, you can add a picture of that product by simply drag and drop the image from your device
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+* <img width="866" alt="add-product-picture" src="https://user-images.githubusercontent.com/57388336/118115363-82548700-b3f1-11eb-9afc-787d9f934f1f.png">
 
-### Advanced Configuration
+* A success gif aprears if you fill in all the fields corectly for the product added
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+* <img width="863" alt="success-add" src="https://user-images.githubusercontent.com/57388336/118115460-a2844600-b3f1-11eb-96ba-9068a35d2361.png">
 
-### Deployment
+* If you want to change some informations about one of your products you have the option of editing the product or even the delete option 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+* <img width="846" alt="edit-delete-product" src="https://user-images.githubusercontent.com/57388336/118115637-e11a0080-b3f1-11eb-932d-c495ce50e5fa.png">
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+
+
+
+
+
+
+
+
